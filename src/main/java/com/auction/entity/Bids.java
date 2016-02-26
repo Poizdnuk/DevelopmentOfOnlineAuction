@@ -1,7 +1,7 @@
 package com.auction.entity;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "bids")
@@ -17,6 +17,6 @@ public class Bids {
     private double price;
 
     @Column(name = "date")
-    private LocalDate date;
+    private Date date;
 
 }

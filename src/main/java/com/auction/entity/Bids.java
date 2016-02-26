@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Bids {
 
     @Column(name = "user_id")
-    private long user_id;
+    private int user_id;
 
     @Column(name = "item_id")
     private long item_id;

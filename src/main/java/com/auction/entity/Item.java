@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 
 @Entity
@@ -12,30 +13,30 @@ public class Item {
 
     @Id
     @GeneratedValue(generator = "increment")
-    @GenericGenerator(name= "increment", strategy= "increment")
+    @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "item_id", length = 6, nullable = false)
-    private long item_id;
+    private int item_id;
 
     @Column
     private String name;
 
     @Column
-    private Double price;
+    private float price;
 
     @Column
-    private Double lowPrice;
+    private float lowPrice;
 
     @Column
-    private Double actualPrice;
+    private float actualPrice;
 
     @Column
     private String photo;
 
     @Column
-    private LocalDate tervalStart;
+    private Date itervalStart;
 
     @Column
-    private LocalDate intervalEnd;
+    private Date intervalEnd;
 
     @Column
     private Category category_id;
@@ -48,4 +49,8 @@ public class Item {
 
     @Column
     private int bidding;
+
+    public Item() {
+    }
+
 }

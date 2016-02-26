@@ -13,7 +13,7 @@ public class Category {
     @Column(name = "category_id", length = 6, nullable = false)
     private int category_id;
 
-    @Column(name = "name")
+    @Column(name = "name", length = 15)
     private String name;
 
     @Column(name = "description")

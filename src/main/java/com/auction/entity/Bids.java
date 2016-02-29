@@ -8,7 +8,7 @@ import java.util.Date;
 public class Bids {
 
     @Column(name = "user_id")
-    private int user_id;
+    private Long user_id;
 
     @Column(name = "item_id")
     private long item_id;
@@ -16,7 +16,7 @@ public class Bids {
     @Column(name = "price")
     private double price;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "date")
     private Date date;
-
 }

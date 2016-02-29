@@ -15,7 +15,7 @@ public class Item {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "item_id", length = 6, nullable = false)
-    private int item_id;
+    private Long item_id;
 
     @Column
     private String name;
@@ -32,9 +32,11 @@ public class Item {
     @Column
     private String photo;
 
+    @Temporal(TemporalType.DATE)
     @Column
     private Date itervalStart;
 
+    @Temporal(TemporalType.DATE)
     @Column
     private Date intervalEnd;
 
@@ -49,8 +51,5 @@ public class Item {
 
     @Column
     private int bidding;
-
-    public Item() {
-    }
 
 }

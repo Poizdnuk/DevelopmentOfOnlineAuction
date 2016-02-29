@@ -15,7 +15,7 @@ public class Orders {
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name= "increment", strategy= "increment")
     @Column(name = "order_id", length = 6, nullable = false)
-    private int order_id;
+    private Long order_id;
 
     @Column
     private User seller;
@@ -26,6 +26,7 @@ public class Orders {
     @Column
     private Item item;
 
+    @Temporal(TemporalType.DATE)
     @Column
     private Date date;
 

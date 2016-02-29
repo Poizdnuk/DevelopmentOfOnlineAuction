@@ -7,13 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
-import org.springframework.orm.jpa.JpaVendorAdapter;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -21,9 +17,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan({"com.auction.config"})
+@ComponentScan({ "com.auction.config" })
 @PropertySource(value = {"classpath:application.properties"})
-@EnableJpaRepositories("com.auction.repository")
 public class HibernateConfiguration {
 
     @Autowired
@@ -65,19 +60,17 @@ public class HibernateConfiguration {
         return txManager;
     }
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan(new String[]{"com.auction.entity"});
-
-        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
-        entityManagerFactoryBean.setJpaProperties(hibernateProperties());
-
-        return entityManagerFactoryBean;
+//    @Bean
+//    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+//        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+//        entityManagerFactoryBean.setDataSource(dataSource());
+//        entityManagerFactoryBean.setPackagesToScan(new String[]{"com.auction.entity"});
+//
+//        JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//        entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
+//        entityManagerFactoryBean.setJpaProperties(hibernateProperties());
+//
+//        return entityManagerFactoryBean;
     }
-
-}
 
 
